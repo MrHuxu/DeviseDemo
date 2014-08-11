@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MiniProject</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default" role="navigation" >
+      <h2 class="navbar-text"><a href="/" id="nav-title">Mini Project</a></h3>
+      <div class="navbar-right">
+        <h5>
+          <% if author_signed_in? %>
+            Signed in as <%= link_to current_author.email, '/authors/edit' %>
+          <%= link_to "Sign out", destroy_author_session_path, :method => :delete, class: "btn btn-danger navbar-btn" %>
+        <% else %>
+          <%= link_to "Sign up", new_author_registration_path, class: 'btn btn-success navbar-btn' %> or <%= link_to "Sign in", new_author_session_path, class: 'btn btn-default navbar-btn' %>
+        <% end %>
+      </h5>
+    </div>
+  </nav>
+  <div id="main" class="container">
+    <%= yield %>
+  </div>
+
+</body>
+</html>

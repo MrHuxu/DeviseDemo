@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  team: MyString
+  position: MyString
+  content: MyText
+  answer: MyText
+  difficulty: 1
+  author_id: 1
+
+two:
+  team: MyString
+  position: MyString
+  content: MyText
+  answer: MyText
+  difficulty: 1
+  author_id: 1

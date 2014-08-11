@@ -1,0 +1,59 @@
+<div class="col-sm-6 col-sm-offset-3">
+  <div class="panel panel-success">
+
+    <div class="panel-heading">
+      <h3 class="panel-title">Sign up</h3>
+    </div>
+
+    <div class="panel-body">
+
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'form-horizontal', role: 'form'}) do |f| %>
+        <%= devise_error_messages! %>
+
+        <br /><div>
+          <%= f.label :name, for: 'su_name', class: 'col-sm-3 control-label' %>
+          <div class="col-sm-9">
+            <%= f.text_field :name, autofocus: true, class: 'form-control', id: 'su_name', placeholder: 'Your name' %>
+          </div>
+        </div>
+
+        <br /><br /><br /><div>
+          <%= f.label :team, for: 'su_team', class: 'col-sm-3 control-label' %>
+          <div class="col-sm-9">
+            <%= f.text_field :team, autofocus: true, class: 'form-control', id: 'su_team', placeholder: 'UI or Adserving or Forecasting or Reporting' %>
+          </div>
+        </div>
+
+        <br /><br /><br /><div>
+          <%= f.label :position, for: 'su_pst', class: 'col-sm-3 control-label' %>
+          <div class="col-sm-9">
+            <%= f.text_field :position, autofocus: true, class: 'form-control', id: 'su_pst', placeholder: 'QA or DEV' %>
+          </div>
+        </div>
+
+        <br /><br /><br /><div>
+          <%= f.label :email, for: 'su_email', class: 'col-sm-3 control-label' %>
+          <div class="col-sm-9">
+            <%= f.email_field :email, class: 'form-control', id: 'su_email', placeholder: 'Email' %>
+          </div>
+        </div>
+
+        <br /><br /><br /><div>
+          <%= f.label :password, for: 'su_pw', class: 'col-sm-3 control-label' %>
+          <div class="col-sm-9">
+            <%= f.password_field :password, class: 'form-control', id: 'su_pw' %>
+          </div>
+        </div>
+
+        <br /><br /><br /><div>
+          <%= f.label :password_confirm, for: 'su_pwc', class: 'col-sm-3 control-label' %>
+          <div class="col-sm-9">
+            <%= f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control', id: 'su_pwc' %>
+          </div>
+        </div><br /><br /><br />
+
+        <div class="col-sm-2 col-sm-offset-3"><%= f.submit "Sign up", class: 'btn btn-info btn-sm' %></div>
+      <% end %>
+    </div>
+  </div>
+</div>

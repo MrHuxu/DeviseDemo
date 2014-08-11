@@ -1,0 +1,78 @@
+<div class="col-sm-10 col-sm-offset-2">
+  <h1>Listing questions</h1>
+</div>
+
+<div class="col-sm-2"><br />
+
+    <h4>Team:</h4>
+    <div class="dropdown" id="t_opt">
+      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownTeam" data-toggle="dropdown">
+        choose
+        <span class="caret" ></span>
+      </button>
+      <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownTeam">
+        <li><a id="t_all">All</a></li>
+        <li><a id="t_ui">UI</a></li>
+        <li><a id="t_ads">Adserving</a></li>
+        <li><a id="t_fct">Forecasting</a></li>
+        <li><a id="t_rpt">Reporting</a></li>
+      </ul>
+    </div>
+
+    <h4>Position:</h4>
+  <div class="dropdown" id="p_opt">
+    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownPosition" data-toggle="dropdown">
+      choose
+      <span class="caret" ></span>
+    </button>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownPosition">
+      <li><a id="p_all">All</a></li>
+      <li><a id="p_dev">DEV</a></li>
+      <li><a id="p_qa">QA</a></li>
+    </ul>
+  </div><br /><br />
+
+  <%= link_to 'New Question >>', new_question_path, class: 'btn btn-info' %><br /><br />
+</div>
+
+<div class="col-sm-10">
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Team</th>
+          <th>Position</th>
+          <th>Content</th>
+          <th>Answer</th>
+          <th>Difficulty</th>
+          <th>Author</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody id="qst_list">
+        <% @questions.each do |question| %>
+          <tr>
+            <td><%= question.team %></td>
+            <td><%= question.position %></td>
+            <td><%= question.content %></td>
+            <td><%= question.answer %></td>
+            <td><%= question.difficulty %></td>
+            <td><%= @authors.find(question.author_id).name %></td>
+            <td><%= link_to 'Show', question %></td>
+            <% if author_signed_in? %>
+              <% if current_author.id == question.author_id %>
+                <td><%= link_to 'Edit', edit_question_path(question) %></td>
+                <td><%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <% else %>
+                <td></td><td></td>
+              <% end %>
+            <% end %> 
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <br>
+</div>
+

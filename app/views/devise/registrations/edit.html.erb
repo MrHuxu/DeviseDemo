@@ -1,0 +1,112 @@
+<div class="col-sm-6 col-sm-offset-3">
+  <div class="panel panel-success">
+
+    <div class="panel-heading">
+      <h3 class="panel-title">Edit <%= resource_name.to_s.humanize %></h3>
+    </div>
+
+    <div class="panel-body">
+
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'form-horizontal', role: 'form'}) do |f| %>
+        <%= devise_error_messages! %>
+
+        <br /><div>
+          <%= f.label :name, for: 'su_name', class: 'col-sm-3 control-label' %>
+          <div class="col-sm-9">
+            <%= f.text_field :name, autofocus: true, class: 'form-control', id: 'su_name', placeholder: 'Your name' %>
+          </div>
+        </div>
+
+        <br /><br /><br /><div>
+          <%= f.label :team, for: 'su_team', class: 'col-sm-3 control-label' %>
+          <div class="col-sm-9">
+            <%= f.text_field :team, autofocus: true, class: 'form-control', id: 'su_team', placeholder: 'UI || Adserving || Forecasting || Reporting' %>
+          </div>
+        </div>
+
+        <br /><br /><br /><div>
+          <%= f.label :position, for: 'su_pst', class: 'col-sm-3 control-label' %>
+          <div class="col-sm-9">
+            <%= f.text_field :position, autofocus: true, class: 'form-control', id: 'su_pst', placeholder: 'QA || DEV' %>
+          </div>
+        </div>
+
+        <br /><br /><br /><div>
+          <%= f.label :email, for: 'su_email', class: 'col-sm-3 control-label' %>
+          <div class="col-sm-9">
+            <%= f.email_field :email, class: 'form-control', id: 'su_email', placeholder: 'Email' %>
+          </div>
+        </div>
+
+        <br /><br /><br /><div>
+          <%= f.label :password, for: 'su_pw', class: 'col-sm-3 control-label' %>
+          <div class="col-sm-9">
+            <%= f.password_field :password, class: 'form-control', id: 'su_pw', placeholder: "Leave blank if you don't want to change it" %>
+          </div>
+        </div>
+
+        <br /><br /><br /><div>
+          <%= f.label :password_confirm, for: 'su_pwc', class: 'col-sm-3 control-label' %>
+          <div class="col-sm-9">
+            <%= f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control', id: 'su_pwc' %>
+          </div>
+        </div>
+
+        <br /><br /><br /><div>
+          <%= f.label :current_password, for: 'su_cpw', class:'col-sm-3 control-label' %>
+          <div class="col-sm-9">
+            <%= f.password_field :current_password, autocomplete: "off", class: 'form-control', id: 'su_cpw', placeholder: 'We need your current password to confirm your changes' %></div>
+        </div><br /><br /><br />
+
+        <div class="col-sm-2 col-sm-offset-3"><%= f.submit "Update", class: 'btn btn-info btn-sm' %></div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<!--
+<h2>Edit <%= resource_name.to_s.humanize %></h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div>
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true %>
+  </div>
+
+  <div>
+    <%= f.label :team %><br />
+    <%= f.text_field :team %>
+  </div>
+
+  <div>
+    <%= f.label :position %><br />
+    <%= f.text_field :position %>
+  </div>
+
+  <div><%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true %></div>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+    <%= f.password_field :password, autocomplete: "off" %></div>
+
+  <div><%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
+
+  <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.password_field :current_password, autocomplete: "off" %></div>
+
+  <div><%= f.submit "Update" %></div>
+<% end %>
+
+<h3>Cancel my account</h3>
+
+<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+
+<%= link_to "Back", :back %>
+-->
